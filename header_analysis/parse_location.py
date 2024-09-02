@@ -147,6 +147,8 @@ def parse_location(raw: str) -> location_info:
     # Find the meridian number
     contains_meridian = meridian_loc.group(0)
     contains_meridian = fix_numbers(contains_meridian)
+    if len(contains_meridian) > 1:
+        contains_meridian = ''
 
     meridian_arr = re.findall(r'\d', contains_meridian)
     meridian = ''.join(meridian_arr)

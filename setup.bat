@@ -1,4 +1,4 @@
 set CURR_DIR=%~dp0
 cd /d "%CURR_DIR%"
-python index.py
+python -m pip install -r requirements.txt
 pause

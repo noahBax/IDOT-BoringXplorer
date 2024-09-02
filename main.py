@@ -11,13 +11,16 @@ from document_agenda.output_information import Header_Sheet_Entry, Lithology_She
 from xplorer_tools.compile_ideal_batches import compile_ideal_batches, Ideal_Batch
 import numpy as np
 
-# import gc
-# import tracemalloc
-
 import logging
+import sys
 
 def get_pdfs(dir: str) -> list[str]:
     pdfs = []
+
+    if not os.path.exists(dir):
+        logger.critical('RAN into an issue!')
+        logger.critical('Could not find that directory!')
+        sys.exit()
 
     for dirpath, dirnames, filenames in os.walk(dir):
         for file in filenames:
@@ -94,7 +97,7 @@ def main():
     total_processed = 0
     for batch_index, batch in enumerate(batches):
 
-        logger.info(f'batch {batch_index} of {len(batches)}')
+        logger.info(f'batch {batch_index+1} of {len(batches)}')
         
         # Handle the batch
         new_time, failed = handle_batch(batch, total_processed, out_putter)

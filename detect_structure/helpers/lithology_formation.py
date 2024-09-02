@@ -162,7 +162,9 @@ class Lithology_Formation:
         (re.compile(r'[({][t1][li1][ft][)}]', re.IGNORECASE), '(Till)'), # (Tif), (TiT)
         (re.compile(r'[({][t1][il1][li1][li1][li1][)}]', re.IGNORECASE), '(Till)'), # (Tilll)
         (re.compile(r'3rown'), 'Brown'),
+        (re.compile(r'3lack'), 'Black'),
         (re.compile(r'SlLT'), 'SILT'),
+        (re.compile(r'SllT'), 'SILT'),
         (re.compile(r'[ft]i[s$][s$][li1]e', re.IGNORECASE), 'Fissile'),
         (re.compile(r'_[o0]am', re.IGNORECASE), 'LOAM'),  # _OAM
         (re.compile(r'[\.,]+$'), '.'),  # '...' at the end of strings

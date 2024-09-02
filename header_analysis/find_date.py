@@ -26,4 +26,7 @@ def find_date(blocks: list[ocr_analysis]) -> str:
     date = find_end_field(blocks, catch_date_boring, 'date', True)
     date = re.sub(r'[.,]', '', date)
 
+    if sum(c.isdigit() for c in date) < 6:
+        return ''
+
     return date

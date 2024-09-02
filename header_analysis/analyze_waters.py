@@ -112,8 +112,10 @@ def __purge_no_data(line: str) -> str:
 
     if re.search(r'n[o0]\s*[d0o]ata', line, flags=re.IGNORECASE):
         return ''
-    elif re.search(r'N[/l71]A', line):
+    elif re.search(r'N[/l71|I]A', line) or re.match(r'NA', line):
         return 'N/A'
+    elif len(line) < 3:
+        return ''
     else:
         return line
 
