@@ -1,0 +1,137 @@
+Okay, so we have just the task of locating the information inside of the
+BBS_137_REV_8_99 format and even then, there should be a larger focus on just
+getting blow counts. So that is going to be the limit of this code.
+
+Blow counts (blows) are always in the first column inside of the BUM section and
+for the BBS_137_REV_8_99 format they are majority consisted of 3 numbers but
+only the last two are necessary. If:
+    (1) number present: record it
+    (2) numbers present: add them and record the result
+    (3) numbers present: add the last two and record the result
+    
+That's as simple as it gets
+
+Traditionally a BUM section has lines that have an area of 1 foot between them,
+but this doesn't always have to be the case.
+    (1) If the drilling stops, the depth of the BUM will stop early, usually
+        this means less numbers will show up but that doesn't always have to be
+        the case. Look at "Adams County/001-0504 SOIL-ROCK 2001.pdf" where at
+        the last BUM on page 2, there is a /2" marking after the initial 100.
+        This may mean that the BUM should technically only extend down to 2"
+        (i.e. from 10.5' to 10.17'), but I don't see anything to support that in
+        the spreadsheets he's given me. Food for thought if someone works on
+        this in the future
+    (2) If the blow count reaches a maximum. I think Jason said that usually
+        this is 100, but I may be lying. If you see again on "Adams
+        County/001-0504 SOIL-ROCK 2001.pdf" in the second to last BUM or you
+        could look at "Menard County/065-3109 SOIL 2001.pdf" in the first BUM.
+        The latter also has that extra inch marker, but I'm ignoring it for now
+    (3) If the BUM is split between one column and another. Look at "Menard
+        County/I-53 3 culvert replacements on Quarry Rd.pdf" page 7
+
+Some annoyances that will make this hard:
+    (1) When a blowcount reaches its max and an additional number is inserted to
+        say "this is the actual depth", an extra little nubbin is added (see
+        Menard County/065-3109 SOIL 2001.pdf page 3). Luckily given that we're
+        ignoring it at this point, it doesn't contain any data
+    (2) Sometimes text from the UCS column can run over into the columns on the
+        side of it (see Menard County/065-0501 SOIL 2000.pdf page 3)
+    (3) When a BUM section starts at the beginning of a column, there is no room
+        on top to put the first of the three numbers, so instead the format just
+        puts the numbers there like it normally would and adds a number inside a
+        nubbins at the bottom. Here we DO need to care about what is there (see
+        Menard County/065-0501 SOIL 2000.pdf page 3 again). I theorize that it's
+        also possible for there to be FOUR numbers that show up if the blowcount
+        reaches its max there somehow
+    (4) Having boring completions near the end of the page messes things up (see
+        "Menard County/065-3006 SOIL 2001.pdf")
+    (5) Sometimes the nubbins is in the middle column instead of the edge (see
+        "Menard County/065-3109 SOIL 2001.pdf")
+
+Given all of that, here is the plan:
+    1) Search through the BUM columns for horizontal lines being at least 1/6
+       their total width
+    2) Take out lines that are less than 1/3 of the BUM total width and put them
+       in a separate, "smaller" list (steps 1 and 2 need to CHANGE given
+       annoyances point 5)
+    3) Go down the larger list and locate pairs. Pairs are denoted by having <=
+       1 foot of space between them. If the first and last lines are not in a
+       pair, then test them to be pairs with the beginning and end of the column
+    4) Loop over each pair
+
+       IF the width between a pair is 1 foot AND it is NOT a top pair, analyze
+       it for numbers. If a non-numeric is found or != 2 are recognized, (FOR
+       NOW) throw an error. Add the two numbers and record the result
+
+       ELIF the width span is 1 foot AND it is a top pair, look at the smallest
+       list and grab the top nubbins. If it is not attached to this group, throw
+       an error. If it is, do text analysis from the top of the pair to the
+       nubbins. If a non-numeric or != 3 are recognized, (FOR NOW) throw and
+       error. Add the lower 2 numbers and record the result
+
+       ELIF the width span is < 1 foot, pass it onto a special case
+
+       ELSE, raise an unhandled exception
+    4) Special case:
+
+       IF it is a bottom pair, mark it as incomplete and record just the one
+       number
+
+       ELIF it is a top pair, mark it as incomplete and record just the one
+       number
+
+       ELSE, it should be the last one. Mark it as complete and as the last BUM.
+       After completion do a check and if there is more than one marked as last
+       BUM, raise an Exception
+
+New plan: To remedy annoyances point 5, I'll just treat individually columns
+separately
+
+NOTE: The reason I'm having to treat columns separately instead of doing line
+analysis all together is because overflow text can sometimes cause lines that
+exceed the minimum length threshold and mess things up
+
+Given all of that, here is the plan:
+    1) Search through the individual columns for horizontal lines being at least
+       2/3 of their length
+       
+    2) Take out lines that aren't a majority of the length
+
+    3) Survey all the gathered lists and create a new list where at least 2 of
+       the individual column lists agree. Then create pairs. Pairs are denoted
+       by having <= 1 foot of space between them. If the first and last lines
+       are not in a pair, then test them to be pairs with the beginning and end
+       of the column
+    
+    4) Loop over each pair
+
+       IF the width between a pair is 1 foot AND it is NOT a top pair, analyze
+       it for numbers. If a non-numeric is found or != 2 are recognized, (FOR
+       NOW) throw an error. Add the two numbers and record the result
+
+       ELIF the width span is 1 foot AND it is a top pair, look at the smallest
+       list and grab the top nubbins. If it is not attached to this group, throw
+       an error. If it is, do text analysis from the top of the pair to the
+       nubbins. If a non-numeric or != 3 are recognized, (FOR NOW) throw and
+       error. Add the lower 2 numbers and record the result
+
+       ELIF the width span is < 1 foot, pass it onto a special case
+
+       ELSE, raise an unhandled exception
+    4) Special case:
+
+       IF it is a bottom pair, mark it as incomplete and record just the one
+       number
+
+       ELIF it is a top pair, mark it as incomplete and record just the one
+       number
+
+       ELSE, it should be the last one. Mark it as complete and as the last BUM.
+       After completion do a check and if there is more than one marked as last
+       BUM, raise an Exception
+
+
+UUGGGGGHHH but this assumes feet! FIX IT FUCKING FIX IT
+
+For whatever reason, when units are reported as meters. The BUM span is still 1
+major tick mark (0.3 meters on the one I looked at which is ~1 foot)
