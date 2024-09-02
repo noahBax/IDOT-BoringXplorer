@@ -21,7 +21,7 @@ import os
 import numpy as np
 from paddleocr import PaddleOCR
 from skimage.io import imsave
-from tools.types import *
+from xplorer_tools.types import *
 from detect_structure.helpers.find_descriptions.block_operations import join_horizontal_blocks
 from detect_structure.helpers.draw_ocr_text_bounds import draw_ocr_text_bounds
 from header_analysis.find_pages import find_pages

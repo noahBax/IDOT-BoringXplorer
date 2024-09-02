@@ -2,20 +2,17 @@ from copy import deepcopy
 import logging
 import os
 from pathlib import Path
-from tools.segment_operations import Segment, find_lines_that_intersect, segment_add, segment_subtract
-from tools.vector_operations import int_ify_vector, vector_add, vector_subtract
-from tools.types import Coordinate, Vector
-from tools.distance_operations import square_distance
+from xplorer_tools.segment_operations import Segment, find_lines_that_intersect, segment_add
+from xplorer_tools.vector_operations import int_ify_vector, vector_add
+from xplorer_tools.types import Coordinate
 from line_detection.helpers.draw_visuals import draw_segment_on_image, draw_on_image
 from line_detection.helpers.get_line_segments import get_line_segments
 from line_detection.detect_lines import verticals
 from detect_structure.helpers.soil_depth_ruler.soil_depth_ruler import Soil_Depth_Ruler
 from skimage.io import imsave
 from statistics import mean
-from functools import reduce
-from numpy import ndarray
 import numpy as np
-from typing import Any, TypedDict
+from typing import Any
 from detect_structure.helpers.table_structure.table_structure import table_half
 
 logger = logging.getLogger(__name__)
@@ -34,8 +31,8 @@ class Table_Structure_Half:
     def __init__(self, 
                  horizontals: list[Segment],
                  verticals: list[Segment],
-                 gray_image: ndarray[Any, Any],
-                 color_image: ndarray[Any, Any],
+                 gray_image: np.ndarray,
+                 color_image: np.ndarray,
                  draw_visuals=False,
                  visuals_folder='visuals'
                 ) -> None:
@@ -322,7 +319,7 @@ class Table_Structure_Half:
         return ret
 
     @staticmethod
-    def __find_column_separators(table_top: Segment, header_top: Segment, gray_image: ndarray[Any, Any], draw_visuals=False, visuals_folder='visuals') -> list[Segment]:
+    def __find_column_separators(table_top: Segment, header_top: Segment, gray_image: np.ndarray, draw_visuals=False, visuals_folder='visuals') -> list[Segment]:
         
         # First crop the image to just the area containing the headers
         top_left = int_ify_vector(header_top.leftmost_point)

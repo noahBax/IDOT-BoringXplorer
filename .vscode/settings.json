@@ -1,0 +1,16 @@
+{
+	"python.analysis.importFormat": "relative",
+	"editor.insertSpaces": true,
+	"mypy-type-checker.ignorePatterns": [
+		"no-redef"
+	],
+	"python.analysis.inlayHints.functionReturnTypes": true,
+	"python.analysis.inlayHints.variableTypes": true,
+	"mypy-type-checker.args": [
+		"--namespace-packages"
+	],
+	"mypy-type-checker.reportingScope": "workspace",
+	"python.analysis.diagnosticSeverityOverrides": {
+		"reportShadowedImports": "none"
+	},
+}

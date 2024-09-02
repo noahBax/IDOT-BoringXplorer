@@ -1,12 +1,11 @@
 import logging
-from tools.types import ocr_coords, Coordinate, ocr_analysis, ocr_result
+from xplorer_tools.types import ocr_coords, Coordinate, ocr_analysis, ocr_result
 from detect_structure.helpers.find_descriptions.block_operations import *
-from tools.cleanup_side import clean_side
+from xplorer_tools.cleanup_side import clean_side
 from paddleocr import PaddleOCR
 from math import floor
 import re
 import numpy as np
-from skimage.io import imsave
 
 logger = logging.getLogger(__name__)
 

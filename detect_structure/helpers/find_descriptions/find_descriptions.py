@@ -22,9 +22,9 @@ from pathlib import Path
 from typing import Literal
 from paddleocr import PaddleOCR
 from skimage.io import imsave
-from tools.stringify_types import str_segment
-from tools.types import Coordinate, ocr_analysis, ocr_result
-from tools.segment_operations import Segment, int_ify_segment
+from xplorer_tools.stringify_types import str_segment
+from xplorer_tools.types import Coordinate, ocr_analysis, ocr_result
+from xplorer_tools.segment_operations import Segment, int_ify_segment
 from detect_structure.helpers.soil_depth_ruler.soil_depth_ruler import Soil_Depth_Ruler
 from detect_structure.helpers.lithology_formation import Lithology_Formation
 from detect_structure.helpers.table_structure.table_structure import Table_Structure
@@ -35,7 +35,7 @@ from line_detection.detect_lines import horizontals
 from detect_structure.helpers.find_descriptions.block_operations import *
 from detect_structure.helpers.find_descriptions.ocr_operations import find_text_blobs, group_words
 from detect_structure.helpers.draw_ocr_text_bounds import draw_ocr_text_bounds
-from tools.cleanup_side import clean_side
+from xplorer_tools.cleanup_side import clean_side
 import numpy as np
 
 logger = logging.getLogger(__name__)

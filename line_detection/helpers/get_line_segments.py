@@ -4,15 +4,15 @@ from copy import deepcopy
 from typing import Literal
 import numpy as np
 from skimage.transform import probabilistic_hough_line
-from tools.angle_operations import angle_between_two_lines, find_angle_caused_by_points
-from tools.segment_operations import Segment, check_segments_equivalent, segments_do_intersect, segment_project_from, check_point_is_on_segment
-from tools.vector_operations import vector_subtract, check_is_NaN
-from tools.distance_operations import square_distance, square_length
-from tools.types import Vector, Coordinate
+from xplorer_tools.angle_operations import angle_between_two_lines
+from xplorer_tools.segment_operations import Segment, check_segments_equivalent, segments_do_intersect, segment_project_from, check_point_is_on_segment
+from xplorer_tools.vector_operations import vector_subtract, check_is_NaN
+from xplorer_tools.distance_operations import square_distance, square_length
+from xplorer_tools.types import Vector, Coordinate
 from line_detection.helpers.create_segments import create_segments
 from line_detection.helpers.find_average_of_alongside_lines import find_average_of_alongside_lines
 from line_detection.helpers.find_average_of_intersecting_lines import find_average_of_intersecting_lines
-from tools.stringify_types import str_coord, str_segment
+from xplorer_tools.stringify_types import str_coord
 
 logger = logging.getLogger(__name__)
 comparisons_skipped: int = 0

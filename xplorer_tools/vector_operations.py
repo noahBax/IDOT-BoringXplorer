@@ -1,5 +1,5 @@
 from math import floor, isnan
-from tools.types import Coordinate, Vector
+from xplorer_tools.types import Coordinate, Vector
 
 def vector_dot(u: Vector, v: Vector) -> float:
     return u['x'] * v['x'] + u['y'] * v['y']

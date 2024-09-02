@@ -1,11 +1,11 @@
 import logging
 from typing import Literal
 from math import pi, sqrt
-from tools.types import Coordinate, Vector
-from tools.segment_operations import find_segment_intersect, segment_project_from, Segment
-from tools.angle_operations import find_angle_bac
-from tools.distance_operations import check_points_equivalent, square_distance, square_length
-from tools.vector_operations import vector_subtract, vector_project_from, vector_multiply, vector_add
+from xplorer_tools.types import Coordinate, Vector
+from xplorer_tools.segment_operations import find_segment_intersect, segment_project_from, Segment
+from xplorer_tools.angle_operations import find_angle_bac
+from xplorer_tools.distance_operations import check_points_equivalent, square_distance, square_length
+from xplorer_tools.vector_operations import vector_subtract, vector_project_from, vector_multiply, vector_add
 
 logger = logging.getLogger(__name__)
 

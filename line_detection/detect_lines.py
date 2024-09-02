@@ -7,8 +7,8 @@ import numpy as np
 from pathlib import Path
 from numpy import ndarray
 from skimage.io import imsave
-from tools.segment_operations import Segment, segment_add
-from tools.types import Coordinate
+from xplorer_tools.segment_operations import Segment, segment_add
+from xplorer_tools.types import Coordinate
 from line_detection.helpers.draw_visuals import *
 from line_detection.helpers.get_line_segments import get_line_segments
 

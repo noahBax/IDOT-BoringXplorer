@@ -1,5 +1,5 @@
 from math import pi, atan
-from tools.segment_operations import Segment
+from xplorer_tools.segment_operations import Segment
 
 
 def create_segments(raw_segments: list[tuple[tuple[float, float], tuple[float, float]]]) -> list[Segment]:

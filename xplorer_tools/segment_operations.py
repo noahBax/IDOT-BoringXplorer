@@ -1,8 +1,8 @@
 from __future__ import annotations
 import json
 from math import atan, floor, pi, sqrt
-from tools.types import Vector, Coordinate
-from tools.vector_operations import vector_subtract, vector_project_from, vector_add
+from xplorer_tools.types import Vector, Coordinate
+from xplorer_tools.vector_operations import vector_subtract, vector_project_from, vector_add
 from functools import cached_property
 
 class Segment:

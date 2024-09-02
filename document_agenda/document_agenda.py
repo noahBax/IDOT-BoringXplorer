@@ -1,7 +1,5 @@
 import logging
-from math import floor
 import re
-from typing import Literal, LiteralString, TypedDict
 from detect_structure.helpers.lithology_formation import Lithology_Formation
 from detect_structure.helpers.find_BUM_info.blowcount import BlowCount
 from header_analysis.analyze_header import Header_Obj

@@ -9,8 +9,8 @@ from skimage.io import imsave
 from collections import Counter
 from detect_structure.helpers.table_structure.table_structure_half import Table_Structure_Half
 from document_agenda.document_agenda import Document_Agenda
-from tools.stringify_types import Vector
-from tools.segment_operations import Segment, int_ify_segment
+from xplorer_tools.stringify_types import Vector
+from xplorer_tools.segment_operations import Segment, int_ify_segment
 from line_detection.detect_lines import horizontals
 from line_detection.helpers.get_line_segments import get_line_segments
 from detect_structure.helpers.soil_depth_ruler.soil_depth_ruler import Soil_Depth_Ruler
@@ -19,7 +19,7 @@ from line_detection.helpers.draw_visuals import draw_segment_visuals, draw_on_im
 from detect_structure.helpers.find_BUM_info.BUM_pair import Pair
 from detect_structure.helpers.find_BUM_info.blowcount import BlowCount
 import detect_structure.helpers.find_BUM_info.simple_stuff as simple_stuff
-from tools.cleanup_side import clean_side
+from xplorer_tools.cleanup_side import clean_side
 
 logger = logging.getLogger(__name__)
 

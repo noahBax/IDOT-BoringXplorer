@@ -1,6 +1,6 @@
 from typing import overload, Literal
 import numpy as np
-from tools.segment_operations import Segment
+from xplorer_tools.segment_operations import Segment
 from PIL import Image
 
 @overload

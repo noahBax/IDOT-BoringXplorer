@@ -1,6 +1,6 @@
 import logging
 from detect_structure.helpers.find_descriptions.block_operations import *
-from tools.types import *
+from xplorer_tools.types import *
 from header_analysis.field_mistakes import MISTAKES
 import re
 

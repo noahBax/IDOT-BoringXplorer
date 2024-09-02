@@ -1,8 +1,8 @@
 from math import atan, pi, acos, sqrt
-from tools.distance_operations import square_length
-from tools.vector_operations import vector_subtract, vector_dot
-from tools.types import Coordinate, Vector
-from tools.segment_operations import Segment
+from xplorer_tools.distance_operations import square_length
+from xplorer_tools.vector_operations import vector_subtract, vector_dot
+from xplorer_tools.types import Coordinate, Vector
+from xplorer_tools.segment_operations import Segment
 
 def __zero_segment(segment: Segment) -> tuple[Vector, Vector]:
     zeroed: Vector = {

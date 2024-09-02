@@ -12,7 +12,7 @@ from header_analysis.find_both_stations import find_both_stations
 from header_analysis.find_end_field import find_end_field
 from header_analysis.parse_location import location_info, parse_location
 from header_analysis.find_pages import find_pages
-from tools.types import *
+from xplorer_tools.types import *
 from document_agenda.output_information import county_code_dict
 from header_analysis.find_date import find_date
 

@@ -8,7 +8,7 @@ import concurrent.futures
 from header_analysis.simply_get_page_groups import Page_Group_Builder
 from manage_outputs.manage_outputs import Output_Manager
 from document_agenda.output_information import Header_Sheet_Entry, Lithology_Sheet_Entry, Blowcount_Sheet_Entry
-from tools.compile_ideal_batches import compile_ideal_batches, Ideal_Batch
+from xplorer_tools.compile_ideal_batches import compile_ideal_batches, Ideal_Batch
 import numpy as np
 
 # import gc
@@ -27,7 +27,7 @@ def get_pdfs(dir: str) -> list[str]:
     return pdfs
 
 def get_page_count_dict(queue, paths: list[str]) -> None:
-    from tools.find_page_count_dict import find_page_count_dict
+    from xplorer_tools.find_page_count_dict import find_page_count_dict
     ret = find_page_count_dict(paths)
     queue.put(ret)
 
@@ -38,7 +38,7 @@ def main():
     logger.info(f'Start time is {datetime.datetime.now()}')
 
     config = ConfigParser()
-    config.read('ProcessingReports/config.ini')
+    config.read('config.ini')
     
     pdfs_folder = config['BEHAVIOR']['PDFsParentFolder']
     logger.info(f'Looking for pdfs under {pdfs_folder}')
@@ -177,8 +177,8 @@ def look_at_file(file_path: str,
     from detect_structure.helpers.table_structure.table_structure import Table_Structure
     from detect_structure.helpers.table_structure.table_structure_half import Table_Structure_Half
     from labeled_sets import bbs_137_rev_8_99, page_dict
-    from tools.fix_orientation import fix_orientation
-    from tools.get_image_from_page import get_image_from_page
+    from xplorer_tools.fix_orientation import fix_orientation
+    from xplorer_tools.get_image_from_page import get_image_from_page
     from line_detection.detect_lines import detect_lines
     from detect_structure.detect_structure import detect_structure
     from find_logs.find_log import find_bbs_137_rev_8_99_log_pages
@@ -310,7 +310,7 @@ def handle_actual_page_group(log_locations: list[int],
     from detect_structure.helpers.find_descriptions.find_descriptions import find_descriptions
     from detect_structure.helpers.find_BUM_info.find_blow_counts import find_blow_counts
     from document_agenda.document_agenda import Document_Agenda
-    from tools.fix_analysis_objects import take_majority_header, take_majority_water
+    from xplorer_tools.fix_analysis_objects import take_majority_header, take_majority_water
     from detect_structure.helpers.table_structure.table_structure import Table_Structure
     from detect_structure.helpers.table_structure.table_structure_half import Table_Structure_Half
 

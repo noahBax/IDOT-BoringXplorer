@@ -1,5 +1,5 @@
-from tools.segment_operations import Segment
-from tools.types import Coordinate, Vector
+from xplorer_tools.segment_operations import Segment
+from xplorer_tools.types import Coordinate, Vector
 
 def find_slope(vector: Segment | Vector) -> float:
     """

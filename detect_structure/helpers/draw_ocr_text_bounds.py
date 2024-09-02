@@ -3,8 +3,8 @@ import logging
 from math import floor
 import numpy as np
 from skimage.draw import line
-from tools.types import ocr_result
-from tools.segment_operations import Segment
+from xplorer_tools.types import ocr_result
+from xplorer_tools.segment_operations import Segment
 from line_detection.helpers.draw_visuals import draw_segment_on_image
 
 logger = logging.getLogger(__name__)

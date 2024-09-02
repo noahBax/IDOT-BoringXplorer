@@ -1,5 +1,5 @@
-from tools.segment_operations import Segment
-from tools.types import Vector, Coordinate
+from xplorer_tools.segment_operations import Segment
+from xplorer_tools.types import Vector, Coordinate
 
 def str_coord(coord: Coordinate) -> str:
     return f'({coord["x"]}, {coord["y"]})'

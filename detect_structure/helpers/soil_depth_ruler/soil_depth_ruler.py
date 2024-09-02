@@ -5,10 +5,10 @@ from pathlib import Path
 from typing import Any, Literal, TypedDict
 from skimage.io import imsave
 from functools import reduce
-from tools.types import form_types, ocr_result
-from tools.segment_operations import Segment, segment_subtract
+from xplorer_tools.types import form_types, ocr_result
+from xplorer_tools.segment_operations import Segment, segment_subtract
 from detect_structure.helpers.soil_depth_ruler.find_ruler_lines import detect_ruler_lines
-from tools.stringify_types import str_segment
+from xplorer_tools.stringify_types import str_segment
 from line_detection.helpers.draw_visuals import draw_segment_on_image
 import numpy as np
 import statistics

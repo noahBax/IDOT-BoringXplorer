@@ -1,4 +1,4 @@
-from tools.types import ocr_analysis, ocr_coords
+from xplorer_tools.types import ocr_analysis, ocr_coords
 
 def average_y_of_ocr_coords(coords: ocr_coords) -> float:
     s = sum([c[1] for c in coords])

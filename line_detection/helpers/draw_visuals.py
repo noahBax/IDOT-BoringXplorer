@@ -1,11 +1,8 @@
 from copy import deepcopy
-from typing import Any, Literal, overload
-from numpy import ndarray
 from PIL import Image, ImageDraw
 from skimage.draw import line
 from skimage.color import gray2rgb
-from tools.segment_operations import int_ify_segment, Segment
-from tools.stringify_types import str_segment
+from xplorer_tools.segment_operations import int_ify_segment, Segment
 import numpy as np
 
 def __line_rr_cc(segment: Segment):
@@ -59,7 +56,7 @@ def draw_segment_visuals(shape, horizontals: list[Segment], verticals: list[Segm
         return blank_image
 
 
-def draw_on_image(image: ndarray[Any, np.dtype[Any]],
+def draw_on_image(image: np.ndarray,
                   horizontals: list[Segment],
                   verticals: list[Segment],
                   create_copy=True,
@@ -125,6 +122,6 @@ def draw_segment_on_image(image: np.ndarray,
     
     return image
 
-def colorize_array(gray_image: ndarray) -> ndarray:
+def colorize_array(gray_image: np.ndarray) -> np.ndarray:
     c = gray2rgb(gray_image)
     return c

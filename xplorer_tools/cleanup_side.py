@@ -1,5 +1,5 @@
 import logging
-from tools.flatten_ndarray_3_to_1 import flatten_ndarray_3_to_1
+from xplorer_tools.flatten_ndarray_3_to_1 import flatten_ndarray_3_to_1
 from typing import Literal
 import numpy as np
 

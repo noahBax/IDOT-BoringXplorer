@@ -1,7 +1,7 @@
 import logging
 import re
 from header_analysis.find_end_field import find_end_field
-from tools.types import *
+from xplorer_tools.types import *
 from detect_structure.helpers.find_descriptions.block_operations import *
 
 catch_date = re.compile(r'\d{1,2}\/\d{1,2}\/\d{2,4}')

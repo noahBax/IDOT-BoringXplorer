@@ -6,10 +6,10 @@ import numpy as np
 from pathlib import Path
 from numpy import ndarray
 from skimage.io import imsave
-from tools.segment_operations import Segment
+from xplorer_tools.segment_operations import Segment
 from line_detection.helpers.draw_visuals import *
 from line_detection.helpers.get_line_segments import get_line_segments
-from tools.angle_operations import find_angle_between
+from xplorer_tools.angle_operations import find_angle_between
 from line_detection.detect_lines import horizontals
 
 logger = logging.getLogger(__name__)

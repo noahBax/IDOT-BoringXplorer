@@ -3,11 +3,10 @@ from math import floor
 import os
 from pathlib import Path
 import numpy as np
-from tools.types import *
+from xplorer_tools.types import *
 from skimage.io import imsave
 from paddleocr import PaddleOCR
-from labeled_sets import bbs_137_rev_8_99, page_dict
-from detect_structure.helpers.find_descriptions.block_operations import join_horizontal_blocks, join_vertical_blocks
+from detect_structure.helpers.find_descriptions.block_operations import join_horizontal_blocks
 from detect_structure.helpers.draw_ocr_text_bounds import draw_ocr_text_bounds
 from PIL import Image
 from difflib import SequenceMatcher

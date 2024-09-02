@@ -1,5 +1,5 @@
 from math import degrees
-from tools.guess_page_orientation import guess_page_orientation
+from xplorer_tools.guess_page_orientation import guess_page_orientation
 from PIL import Image
 
 def fix_orientation(grayscale_image: Image.Image, color_image: Image.Image, assess_count=3) -> tuple[Image.Image, Image.Image]:

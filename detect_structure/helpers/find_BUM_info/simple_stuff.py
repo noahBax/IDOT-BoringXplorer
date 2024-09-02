@@ -3,15 +3,13 @@ import re
 import numpy as np
 from math import floor
 from paddleocr import PaddleOCR
-from skimage.io import imsave
 from detect_structure.helpers.find_BUM_info.BUM_pair import Pair
 from detect_structure.helpers.find_BUM_info.blowcount import BlowCount
 from detect_structure.helpers.soil_depth_ruler.soil_depth_ruler import Soil_Depth_Ruler
 from document_agenda.document_agenda import Document_Agenda
-from tools.types import ocr_analysis, simple_result
+from xplorer_tools.types import simple_result
 from detect_structure.helpers.find_descriptions.ocr_operations import possible_mistakes
-from tools.cleanup_side import clean_side
-from log_config import logger_num
+from xplorer_tools.cleanup_side import clean_side
 
 logger = logging.getLogger(__name__)
 save_count = 0

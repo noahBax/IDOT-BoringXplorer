@@ -1,8 +1,8 @@
 from scipy.stats import norm
-from tools.distance_operations import square_distance, square_length
-from tools.vector_operations import vector_add, vector_multiply, check_is_NaN
-from tools.segment_operations import segment_project_from, check_point_is_on_segment, Segment, check_segments_equivalent, zero_segment
-from tools.types import Coordinate
+from xplorer_tools.distance_operations import square_distance, square_length
+from xplorer_tools.vector_operations import vector_add, vector_multiply, check_is_NaN
+from xplorer_tools.segment_operations import segment_project_from, check_point_is_on_segment, Segment, check_segments_equivalent, zero_segment
+from xplorer_tools.types import Coordinate
 
 def find_average_of_alongside_lines(left_segment: Segment, right_segment: Segment) -> Segment:
     """

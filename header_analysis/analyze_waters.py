@@ -1,7 +1,7 @@
 import logging
 import re
 from typing import TypedDict
-from tools.types import *
+from xplorer_tools.types import *
 from detect_structure.helpers.find_descriptions.block_operations import *
 from header_analysis.find_end_field import find_end_field
 from header_analysis.parse_location import number_mistakes

@@ -19,7 +19,7 @@ def setup(console_level=logging.INFO, log_prefix:Any='', do_paddle=False):
 
     # Access log settings
     config = ConfigParser()
-    config.read('ProcessingReports/config.ini')
+    config.read('config.ini')
 
     # Clear existing handlers
     if logger.hasHandlers():

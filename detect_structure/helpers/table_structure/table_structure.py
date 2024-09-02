@@ -1,11 +1,11 @@
 import logging
 import os
 from pathlib import Path
-from tools.segment_operations import Segment, find_lines_that_intersect, segment_add, segment_subtract
-from tools.vector_operations import int_ify_vector, vector_add, vector_subtract
-from tools.stringify_types import str_segment
-from tools.types import Coordinate, Vector
-from tools.distance_operations import square_distance
+from xplorer_tools.segment_operations import Segment, find_lines_that_intersect, segment_add, segment_subtract
+from xplorer_tools.vector_operations import int_ify_vector, vector_add, vector_subtract
+from xplorer_tools.stringify_types import str_segment
+from xplorer_tools.types import Coordinate, Vector
+from xplorer_tools.distance_operations import square_distance
 from line_detection.helpers.draw_visuals import draw_segment_on_image, draw_on_image
 from line_detection.helpers.get_line_segments import get_line_segments
 from line_detection.detect_lines import verticals

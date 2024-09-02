@@ -6,7 +6,7 @@ from enum import Enum, auto
 import numpy as np
 from paddleocr import PaddleOCR
 from skimage.io import imsave
-from tools.types import *
+from xplorer_tools.types import *
 from header_analysis.analyze_waters import Water_Obj, analyze_water
 from header_analysis.analyze_header import Header_Obj, analyze_header
 from detect_structure.helpers.table_structure.table_structure import Table_Structure

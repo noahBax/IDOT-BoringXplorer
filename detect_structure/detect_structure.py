@@ -1,12 +1,10 @@
 import logging
 import os
 import pickle
-from detect_structure.helpers.table_structure import table_structure
-from detect_structure.helpers.table_structure import table_structure_half
-from tools.segment_operations import Segment
+from xplorer_tools.segment_operations import Segment
 from detect_structure.helpers.table_structure.table_structure import Table_Structure
 from detect_structure.helpers.table_structure.table_structure_half import Table_Structure_Half
-from tools.types import *
+from xplorer_tools.types import *
 from numpy import ndarray
 from typing import Any, Literal
 
