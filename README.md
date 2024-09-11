@@ -1,16 +1,16 @@
 # BoringXplorer
 
-**BoringXplorer** is a Python library designed for geotechnical engineers and
-researchers who need to automate the extraction of data from BBS 137 rev. 8-99
-Soil Boring Log documents. It processes all pages in a PDF, identifies those in
-the correct format, and exports the extracted data into three CSV files
-corresponding to document headers, lithology sections, and blow counts.
+**BoringXplorer** is a Python library designed for extracting data from Soil
+Boring Log douments in the BBS 137 rev. 8-99 format. It does this by looking at
+all pages in a PDF, identifying those in the correct format, and exports the
+extracted data into three CSV files corresponding to document headers, lithology
+sections, and blow counts.
 
 
 ## Installation
 
 **BoringXplorer** was developed and tested with **Python 3.11.9**. So it is
-recommended to use that version or newer.
+recommended to use 3.11.x
 
 ### Steps for installation
 
@@ -42,21 +42,21 @@ If you are on a **Windows** machine, you can just start the **run.bat** file
 ## Configuration
 You can customize the behavior of the program via the "config.ini" file.
 
-### 1. Where to look for PDFs
+#### 1. Where to look for PDFs
 Change the `PDFsParentFolder` option to the address of the folder containing all
 the PDFs you want to analyze. The PDFs don't all need to be directly under the
 path you provide. The program recursively looks through all files underneath the
 parent. For example, a parent folder containing a bunch of smaller folders where
 each has reports from a single county will work just fine.
 
-### 2. Put date strings into output files
+#### 2. Put date strings into output files
 By default, to prevent you accidentally overwriting past results, the
 `UseDateInOutputFileNames` field is set to 'yes'. This will add a small
 timestamp to the start of each of the output files. If you disable this, it will
 just output **"headers_tabulated.csv"**, **"blowcounts_tabulated.csv"**, and
 **"lithology_formations_tabulated.csv"**
 
-### 3. Adjust the resources the program uses
+#### 3. Adjust the resources the program uses
 There are two fields to adjust resource usage: `LowMemoryMode` and `UseMultiThreading`.
 
 Enabling `UseMultiThreading` speeds up the program by splitting up the work
@@ -76,8 +76,11 @@ carefully.
 ## Some Things to be Aware of
 The program does handle pretty much all of the cases, but doing optical
 character recognition and document orientation recognition add some element of
-randomness every time this program runs. The output from run to run will mostly
-resemble each other, but there will be differences between them.
+randomness every time this program runs. Blow counts and their depths will not be
+affected, but the text recognized for the lithology sections and headers might
+vary slightly from run to run.
+
+If you notice any recurring patterns of error, contact me or create an issue.
 
 ## Technologies
 This program largely relies on the
